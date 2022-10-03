@@ -11,6 +11,6 @@ int main()
 
   printf("> ");
   fgets(user_input, MAX_SIZE, stdin);
-  print(user_input);
+  printf(user_input);
   
 }
