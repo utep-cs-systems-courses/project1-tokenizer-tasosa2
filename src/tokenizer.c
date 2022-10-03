@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
@@ -41,10 +39,29 @@ char *word_terminator(char *word)
 int count_words(char *str)
 {
   int word_count = 0;
-  while(*str != '\0'){
+  while(*str != '\0')
+  {
     str = word_start(str);
     str = word_terminator(str);
     word_count++;
   }
   return word_count;
+}
+
+char *copy_str(char *in_str, short len)
+{
+  char *out = (char*) malloc(sizeof(char) * (len + 1));
+  char *copy = out;
+
+  for(int i = 0; i < len; i++){
+    *copy = *in_str;
+    if(*copy == '\0'){
+      break;
+    }
+
+    copy++;
+    in_str++;
+  }
+  *copy = '\0';
+  return out;
 }
