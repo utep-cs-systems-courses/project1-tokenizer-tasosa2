@@ -65,3 +65,26 @@ char *copy_str(char *in_str, short len)
   *copy = '\0';
   return out;
 }
+
+char **tokenize(char* str)
+{
+  int word_count = count_words(str);
+  char **tokens = malloc(sizeof(char*) * (word_count + 1));
+
+  if(!tokens){
+    fprintf(stderr, "Method: tokenize\nError: Memory allocation error!");
+    exit(EXIT_FAILURE);
+  }
+
+  str = word_start(str);
+
+  for(int i = 0; i < word_count; ++i){
+    char* terminator = word_terminator(str);
+    tokens[i] = copy_str(str, terminator - str);
+    str = word_start(terminator);
+  }
+
+  char **terminator = tokens + word_count; 
+  *terminator = 0;
+  return tokens;
+}
