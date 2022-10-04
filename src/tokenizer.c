@@ -88,3 +88,26 @@ char **tokenize(char* str)
   *terminator = 0;
   return tokens;
 }
+
+void print_tokens(char **tokens)
+{
+  int count = 0;
+  while(*tokens != 0){
+    printf("[%d]\t%s",count, *tokens);
+    printf("\n");
+    count++;
+    tokens++;
+  }
+}
+
+void free_tokens(char **tokens)
+{
+  char **token = tokens;
+
+  while(*token != 0){
+    free(*token);
+    token++;
+  }
+  free(*token);
+  free(tokens);
+}
