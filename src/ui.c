@@ -2,23 +2,24 @@
 #include <stdlib.h>
 #include "history.h"
 #include "tokenizer.h"
-#define MAX_SIZE 300
+// #define MAX_SIZE 300
+int MAX_SIZE = 300;
 
 int main()
 {
   char user_input[MAX_SIZE];
   List *history = init_history();
   while(1){
-    printf("\nWelcome to Tokenizer! Enter a String. Enter 'h' to see history. Enter 'q' to exit program.");
-    printf("\n");
+    printf("\nWelcome to Tokenizer! Enter a String. Enter '^' to see history. Enter '<' to exit program.");
+    printf("\n> ");
     
-    fgets(user_input,MAX,stdin);
-    if(user_input[0] == 'q'){
-      printf("\nEnd of Program, Thank You!");
+    fgets(user_input,MAX_SIZE,stdin);
+    if(user_input[0] == '<'){
+      printf("\nEnd of Program, Thank You!\n");
       break;
     }
-    else if(user_input[0] == 'h') {
-      printf("\nHistory");
+    else if(user_input[0] == '^') {
+      printf("\nHistory\n");
       print_history(history);
       break;
     }else
