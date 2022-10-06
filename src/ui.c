@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include "history.h"
 #include "tokenizer.h"
-// #define MAX_SIZE 300
-int MAX_SIZE = 300;
+#define MAX_SIZE 300
 
 int main()
 {
@@ -24,10 +23,10 @@ int main()
       break;
     }else
       {
-	printf("\n User input: %s", user_input);
-
+	printf("\nUser input: %s", user_input);
+		
 	int words = count_words(user_input);
-	printf("\n Word count: %d", words);
+	printf("\nWord count: %d", words);
 
 	char** tokens = tokenize(user_input);
 	printf("\n");
