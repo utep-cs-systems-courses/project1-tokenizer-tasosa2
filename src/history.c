@@ -56,10 +56,25 @@ char *get_history(List* list, int id)
 
 void print_history(List* list)
 {
+  Item* temp = (list->root);
 
+  while (temp != NULL)
+    {
+      printf("History item [%d]: %s \n", temp->id, temp->str);
+      temp = temp->next;
+    }
 }
 
 void free_history(List* list )
 {
-
+  Item* temp;
+  Item* temp1;
+  temp  = list -> root;
+  while (temp != NULL)
+    {
+      temp1 = temp;
+      temp = temp->next;
+      free(temp1);
+    }
+  free(list);
 }
